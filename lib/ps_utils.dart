@@ -10,3 +10,5 @@ export 'helpers/network_manager.dart';
 export 'logging/logger.dart';
 export 'popup/popup.dart';
 export 'validators/validation.dart';
+export 'google_update/update_controller.dart';
+export 'google_update/update.dart';
