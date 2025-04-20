@@ -1,21 +1,21 @@
-class PSValidator {
-  // Empty Text Validation
-  static String? validateEmptyText(String? fieldName, String? value) {
-    if (value == null || value.isEmpty) {
-      return "field_name_required";
+class PSEnValidator {
+  //Empty Text Validation
+  static String? validateEmptyText(String? fieldName, String? value){
+    if (value == null || value.isEmpty){
+      return "$fieldName is required";
     }
     return null;
   }
 
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return 'email_required';
+      return 'Email is required';
     }
 
     final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
     if (!emailRegExp.hasMatch(value)) {
-      return 'invalid_email_address';
+      return 'Invalid email Address';
     }
 
     return null;
@@ -23,25 +23,25 @@ class PSValidator {
 
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'password_required';
+      return 'Password is required';
     }
 
     if (value.length < 8) {
-      return 'password_minimum_length';
+      return 'Password must be at least 8 characters long';
     }
 
     // Uppercase letters
     if (!value.contains(RegExp(r'[A-Z]'))) {
-      return 'password_uppercase_required';
+      return 'Password must contain at least one uppercase letter';
     }
 
     if (!value.contains(RegExp(r'[a-z]'))) {
-      return 'password_lowercase_required';
+      return 'Password must contain at least one lowercase letter';
     }
 
-    // Numbers
+    // numbers
     if (!value.contains(RegExp(r'[0-9]'))) {
-      return 'password_number_required';
+      return 'Password must contain at least one number';
     }
 
     return null;
@@ -49,13 +49,13 @@ class PSValidator {
 
   static String? validatePhoneNumber(String? value) {
     if (value == null || value.isEmpty) {
-      return 'phone_number_required';
+      return 'Phone number is required';
     }
 
     final phoneRegExp = RegExp(r'^\d{8}$');
 
     if (!phoneRegExp.hasMatch(value)) {
-      return 'invalid_phone_number_format';
+      return 'Invalid phone number format (8 digits required)';
     }
 
     return null;
@@ -63,10 +63,10 @@ class PSValidator {
 
   static String? validateConfirmPassword(String? value, String? confirmPassword) {
     if (value == null || value.isEmpty) {
-      return 'password_required';
+      return 'Password is required';
     }
     if (value != confirmPassword) {
-      return "passwords_do_not_match";
+      return "Passwords do not match";
     }
     return null;
   }

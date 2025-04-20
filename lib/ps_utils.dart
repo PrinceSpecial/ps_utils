@@ -10,3 +10,4 @@ export 'helpers/network_manager.dart';
 export 'logging/logger.dart';
 export 'popup/popup.dart';
 export 'validators/validation.dart';
+export 'validators/en_validation.dart';
